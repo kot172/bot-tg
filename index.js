@@ -46,6 +46,22 @@ function getRandomPhraseZman() {
   ][randomIndex];
 }
 
+function getRandomPhraseCars() {
+  const randomIndex = Math.floor(Math.random() * 2);
+  return [
+    'Квотер - ',
+    '100 - 200: ',
+  ][randomIndex];
+}
+
+function count() {
+    const min = 4;
+    const max = 30;
+    const randomNum = Math.random() * (max - min) + min;
+    return parseFloat(randomNum.toFixed(2));
+  }
+  
+
 // Обработчик для инлайн запросов
 bot.on('inline_query', (ctx) => {
   const queryId = ctx.inlineQuery.id;
@@ -54,6 +70,8 @@ bot.on('inline_query', (ctx) => {
 
   const randomPhraseVlad = getRandomPhraseVlad();
   const randomPhraseZman = getRandomPhraseZman();
+  const countSpeed = getRandomPhraseCars()
+  const summSpeed = count()
 
   const results = [
     {
@@ -74,6 +92,16 @@ bot.on('inline_query', (ctx) => {
       parse_mode: 'HTML',
       input_message_content: {
         message_text: `@${username} сегодня - ${randomPhraseZman}`
+      }
+    },
+    {
+      type: 'article',
+      id: '3',
+      title: '⭐️ Какой ты гонщик? ⭐️',
+      thumb_url: 'https://journal.ab-club.ru/wp-content/uploads/2021/03/11-2.jpg',
+      parse_mode: 'HTML',
+      input_message_content: {
+        message_text: `@${username} поехал - ${countSpeed} ${summSpeed} секунд`
       }
 
     },
