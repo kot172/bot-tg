@@ -46,17 +46,10 @@ function getRandomPhraseZman() {
   ][randomIndex];
 }
 
-function getRandomPhraseCars() {
-  const randomIndex = Math.floor(Math.random() * 2);
-  return [
-    'Квотер - ',
-    '100 - 200: ',
-  ][randomIndex];
-}
 
 function count() {
-    const min = 4;
-    const max = 30;
+    const min = 6;
+    const max = 26;
     const randomNum = Math.random() * (max - min) + min;
     return parseFloat(randomNum.toFixed(2));
   }
@@ -70,7 +63,6 @@ bot.on('inline_query', (ctx) => {
 
   const randomPhraseVlad = getRandomPhraseVlad();
   const randomPhraseZman = getRandomPhraseZman();
-  const countSpeed = getRandomPhraseCars()
   const summSpeed = count()
 
   const results = [
@@ -101,7 +93,7 @@ bot.on('inline_query', (ctx) => {
       thumb_url: 'https://journal.ab-club.ru/wp-content/uploads/2021/03/11-2.jpg',
       parse_mode: 'HTML',
       input_message_content: {
-        message_text: `@${username} поехал - ${countSpeed} ${summSpeed} секунд`
+        message_text: `@${username} квотер у меня: ${summSpeed} секунд`
       }
 
     },
