@@ -46,13 +46,20 @@ const bot = new Telegraf('6531843554:AAFLHZST1IG98trGSHEIG9e8k4wP4AIsf1U');
 // }
 
 
-function count() {
+function countCvoter() {
     const min = 6;
     const max = 26;
     const randomNum = Math.random() * (max - min) + min;
     return parseFloat(randomNum.toFixed(2));
   }
   
+
+  function count() {
+    const min = 2;
+    const max = 20;
+    const randomNum = Math.random() * (max - min) + min;
+    return parseFloat(randomNum.toFixed(2));
+  }
 
 // Обработчик для инлайн запросов
 bot.on('inline_query', (ctx) => {
@@ -62,19 +69,20 @@ bot.on('inline_query', (ctx) => {
 
   // const randomPhraseVlad = getRandomPhraseVlad();
   // const randomPhraseZman = getRandomPhraseZman();
-  const summSpeed = count()
+  const summSpeed = countCvoter();
+  const summ = count();
 
   const results = [
-    // {
-    //   type: 'article',
-    //   id: '1',
-    //   title: '⭐️ Какой ты сегодня Владик? ⭐️',
-    //   thumb_url: 'https://a.d-cd.net/ff4566s-1920.jpg',
-    //   parse_mode: 'HTML',
-    //   input_message_content: {
-    //     message_text: `@${username} сегодня - ${randomPhraseVlad}`
-    //   }
-    // },
+    {
+      type: 'article',
+      id: '1',
+      title: '⭐️ Замерь 0-100? ⭐️',
+      thumb_url: 'https://a.d-cd.net/ff4566s-1920.jpg',
+      parse_mode: 'HTML',
+      input_message_content: {
+        message_text:  `@${username} 0-100 у меня: ${summ} секунд`
+      }
+    },
     // {
     //   type: 'article',
     //   id: '2',
@@ -87,8 +95,8 @@ bot.on('inline_query', (ctx) => {
     // },
     {
       type: 'article',
-      id: '1',
-      title: '⭐️ Какой ты гонщик? ⭐️',
+      id: '2',
+      title: '⭐️ Замерь квотер ⭐️',
       thumb_url: 'https://journal.ab-club.ru/wp-content/uploads/2021/03/11-2.jpg',
       parse_mode: 'HTML',
       input_message_content: {
