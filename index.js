@@ -56,7 +56,7 @@ function countCvoter() {
 
   function count() {
     const min = 2;
-    const max = 20;
+    const max = 15;
     const randomNum = Math.random() * (max - min) + min;
     return parseFloat(randomNum.toFixed(2));
   }
